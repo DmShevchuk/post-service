@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -56,7 +57,8 @@ public class PostService {
         return hashtags;
     }
 
-    private Hashtag getOrCreateHashtag(String tag) {
+    @Cacheable(value = "hashtags", key = "#tag")
+    public Hashtag getOrCreateHashtag(String tag) {
         return hashtagRepository.findByTag(tag)
                 .orElseGet(() -> hashtagRepository.save(new Hashtag(tag)));
     }

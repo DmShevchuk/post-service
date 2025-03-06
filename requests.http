@@ -11,7 +11,7 @@ POST {{host}}/posts
 Content-Type: application/json
 
 {
-  "content": "Сегодня плох111ой день! #туман #гадость"
+  "content": "Сегодня плохой день! #туман #гадость"
 }
 
 ###

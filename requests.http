@@ -1,0 +1,20 @@
+POST {{host}}/posts
+Content-Type: application/json
+
+{
+  "content": "Сегодня отличный день! #солнце #радость"
+}
+
+###
+
+POST {{host}}/posts
+Content-Type: application/json
+
+{
+  "content": "Сегодня плох111ой день! #туман #гадость"
+}
+
+###
+
+GET {{host}}/posts?hashtag=радость&sort=createdDate,desc
+Content-Type: application/json
